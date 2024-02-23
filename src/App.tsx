@@ -1,11 +1,12 @@
+import { Menu } from "./menu/Menu";
 import { useAppSelector } from "./store/hooks";
 
 
 function App() {
-  const { theme } = useAppSelector( state => state.appSettings );
+  const { appBgColor } = useAppSelector( state => state.appSettings.theme.colors );
 
   const mainContainerStyles: React.CSSProperties = {
-    backgroundColor: theme.appBgColor,
+    backgroundColor: appBgColor,
     width: '100%',
     height: '100%',
     overflow: 'hidden'
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div style={mainContainerStyles}>
+      <Menu />
     </div>
   );
 }
